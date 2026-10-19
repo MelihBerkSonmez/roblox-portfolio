@@ -61,11 +61,12 @@ class Pixel {
 
 // SECTION COLORS: Matches the IDs in your HTML
 const sectionColors = {
-    'home': { r: 255, g: 255, b: 255 },      // White
-    'about': { r: 255, g: 0, b: 122 },     // Neon Pink
-    'projects': { r: 0, g: 209, b: 255 },  // Electric Blue
-    'pricing': { r: 255, g: 165, b: 0 },   // Orange
-    'contact': { r: 180, g: 100, b: 255 }  // Purple
+    'me': { r: 255, g: 255, b: 255 },                    // White
+    'experience-education': { r: 255, g: 0, b: 122 },    // Neon Pink
+    'past-works': { r: 0, g: 209, b: 255 },              // Electric Blue
+    'how-do-i-work': { r: 255, g: 165, b: 0 },           // Orange
+    'genai-policy': { r: 80, g: 220, b: 120 },           // Green
+    'contact': { r: 180, g: 100, b: 255 }                // Purple
 };
 
 // SCROLL DETECTION: Changes globalTargetColor based on visible section
@@ -134,51 +135,3 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 init();
 animate();
-
-
-//Typewriter effect
-const words = [
-    "Roblox Scripter",
-    "Programmer",
-    "Software Engineering Student",
-    "Continuous Learner",
-    "Focused on Improvement",
-];
-
-let wordIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-
-const typingSpeed = 90;
-const deletingSpeed = 50;
-const holdDelay = 1200;
-
-const el = document.getElementById("typewriter");
-
-function typewriter() {
-    const currentWord = words[wordIndex];
-
-    if (!isDeleting) {
-        el.textContent = currentWord.substring(0, charIndex + 1);
-        charIndex++;
-
-        if (charIndex === currentWord.length) {
-            setTimeout(() => (isDeleting = true), holdDelay);
-        }
-    } else {
-        el.textContent = currentWord.substring(0, charIndex - 1);
-        charIndex--;
-
-        if (charIndex === 0) {
-            isDeleting = false;
-            wordIndex = (wordIndex + 1) % words.length;
-        }
-    }
-
-    setTimeout(
-        typewriter,
-        isDeleting ? deletingSpeed : typingSpeed
-    );
-}
-
-typewriter();

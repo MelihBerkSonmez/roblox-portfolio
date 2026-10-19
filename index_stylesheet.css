@@ -194,3 +194,10 @@ p {
   border-radius: 12px;
 }
 
+.subsection {
+    margin-top: 40px;
+}
+
+.subsection h2 {
+    margin-bottom: 10px;
+}
